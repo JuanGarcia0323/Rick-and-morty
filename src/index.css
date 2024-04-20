@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .window {
+    @apply bg-black/40 rounded-md shadow-lg;
+  }
+}
