@@ -1,3 +1,11 @@
+// TODO Chequear buenas practicas, limpiar codigo, separar components
+// TODO Refinar mobile
+// TODO Hacer testing
+// TODO Agregar Filtro
+// TODO Agregar animaciones
+// TODO Agregar alt imagenes
+// TODO Eliminar <a>
+
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import routes from "./Routes";
