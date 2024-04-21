@@ -27,7 +27,7 @@ const CharacterCard = ({ data }: ICharacterCardProps) => {
           <span className="w-0 opacity-0 border border-primary-300 transition-all duration-700 ease-in-out group-hover:w-[95%] group-hover:opacity-100"></span>
         </div>
         {listData.map((key) => (
-          <h3 className="">
+          <h3 className="w-full text-ellipsis h-fit text-nowrap overflow-hidden">
             {key.toUpperCase()}: {data[key]}
           </h3>
         ))}
