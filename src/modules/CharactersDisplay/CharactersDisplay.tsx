@@ -1,33 +1,18 @@
-import { useParams } from "react-router-dom";
-import { useCharacters } from "@queries";
-import CharacterCard from "@components/CharacterCard/CharacterCard";
-import SideBar from "@components/Header/SideBar";
 import GridElements from "@components/GridElements/GridElements";
-const Home = () => {
-  const {
-    data,
-    fetchNextPage,
-    fetchPreviousPage,
-    hasNextPage,
-    isLoading,
-    isError,
-  } = useCharacters();
+import CharacterCard from "@components/CharacterCard/CharacterCard";
+import Logic from "./Logic";
 
-  const characters = data?.pages[0]?.results!;
-
+const CharactersDisplay = () => {
+  const { characters, isLoading } = Logic();
+  console.log(characters);
   return (
-    <div className="flex gap-2 w-screen h-screen  bg-gradient-to-tr from-30% via-65% from-green-500  via-teal-500 to-indigo-500">
-      <GridElements loading={isLoading} className="p-8">
-        {characters?.map((character) => (
-          <CharacterCard data={character} key={character.id} />
-        ))}
-      </GridElements>
-      <SideBar />
-    </div>
+    <GridElements loading={isLoading} className="p-8">
+      {characters?.map((character) => (
+        <CharacterCard data={character} key={character.id} />
+      ))}
+    </GridElements>
   );
 };
-
-export default Home;
 
 {
   /* <div className="w-2/4 h-2/4  flex items-center justify-around  window text-white">
@@ -51,3 +36,5 @@ export default Home;
           </button>
         </div> */
 }
+
+export default CharactersDisplay;

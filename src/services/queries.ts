@@ -1,7 +1,11 @@
-import { useInfiniteQuery, keepPreviousData } from "@tanstack/react-query";
-import { getCharacters } from "./api";
+import {
+  useInfiniteQuery,
+  keepPreviousData,
+  useQuery,
+} from "@tanstack/react-query";
+import { getCharacters, getMoreInfo } from "./api";
 
-export function useCharacters() {
+export const useCharacters = () => {
   return useInfiniteQuery({
     queryKey: ["getCharacters"],
     queryFn: getCharacters,
@@ -20,4 +24,11 @@ export function useCharacters() {
       return firstPageParam + 1;
     },
   });
-}
+};
+
+export const useMoreInfo = (id: number) => {
+  return useQuery({
+    queryKey: ["moreInfo", id],
+    queryFn: () => getMoreInfo(id),
+  });
+};

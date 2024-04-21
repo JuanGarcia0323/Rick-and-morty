@@ -11,3 +11,7 @@ export const getCharacters = async ({ pageParam = 1 }: IPagination) => {
     )
   ).data;
 };
+
+export const getMoreInfo = async (id: number) => {
+  return (await axiosInstance.get<ICharacter>(`character/${id}`)).data;
+};
