@@ -4,6 +4,6 @@
 
 @layer components {
   .window {
-    @apply bg-black/40 rounded-md shadow-lg;
+    @apply bg-white/20 rounded-md shadow-lg;
   }
 }

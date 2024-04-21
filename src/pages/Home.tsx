@@ -16,7 +16,7 @@ const Home = () => {
   const characters = data?.pages[0]?.results!;
 
   return (
-    <div className="flex gap-4 w-screen h-screen  bg-gradient-to-tr from-green-600  to-teal-600">
+    <div className="flex gap-2 w-screen h-screen  bg-gradient-to-tr from-30% via-65% from-green-500  via-teal-500 to-indigo-500">
       <GridElements loading={isLoading} className="p-8">
         {characters?.map((character) => (
           <CharacterCard data={character} key={character.id} />
