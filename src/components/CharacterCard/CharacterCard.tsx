@@ -10,7 +10,7 @@ const CharacterCard = ({ data, className, index }: ICharacterCardProps) => {
       initial={{ height: "0%" }}
       animate={{ height: "100%" }}
       transition={{ delay: 0.2 * (index ?? 1) }}
-      className={`window w-full h-full md:h-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative min-w-80 ${
+      className={`window w-full h-full md:h-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative min-w-80 min-h-60 ${
         className ?? ""
       }`}
     >

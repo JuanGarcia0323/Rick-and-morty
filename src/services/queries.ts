@@ -11,12 +11,12 @@ import {
   getLocation,
 } from "./api";
 
-export const useCharactersByPage = () => {
+export const useCharactersByPage = (initialPage = 1) => {
   return useInfiniteQuery({
     queryKey: ["getCharacters"],
     queryFn: getCharactersByPage,
     placeholderData: keepPreviousData,
-    initialPageParam: 1,
+    initialPageParam: initialPage,
     getNextPageParam: (lastPage, _, lastPageParam) => {
       if (!lastPage.info.next) {
         return undefined;

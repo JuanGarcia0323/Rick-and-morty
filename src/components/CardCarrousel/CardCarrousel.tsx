@@ -9,7 +9,7 @@ const CardCarrousel = ({ data, className, title }: ICardCarrouselProps) => {
     <section className="h-full w-full overflow-hidden">
       <h3>{title} - Residents</h3>
       <div
-        className={`flex w-full flex-nowrap overflow-y-hidden scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-primary-300 overflow-x-auto gap-4 ${className}`}
+        className={`flex w-full flex-nowrap overflow-y-hidden scrollbar-default overflow-x-auto gap-4 ${className}`}
       >
         {data.map((d) => (
           <CharacterCard

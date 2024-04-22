@@ -10,4 +10,8 @@
   .window-black {
     @apply bg-black/60 rounded-md shadow-lg;
   }
+
+  .scrollbar-default {
+    @apply scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-primary-300;
+  }
 }

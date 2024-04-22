@@ -66,7 +66,7 @@ const MoreInfo = () => {
             <h4 className="text-2xl border-b-2 border-primary-300">
               Appearances:
             </h4>
-            <ul className="flex flex-col overflow-y-auto overflow-x-hidden  h-full items-center gap-2 scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-primary-300 px-2">
+            <ul className="flex flex-col overflow-y-auto overflow-x-hidden  h-full items-center gap-2 scrollbar-default px-2">
               {!!episodes &&
                 episodes?.map(({ name }) => (
                   <li key={name} className="w-full p-2 window text-center">

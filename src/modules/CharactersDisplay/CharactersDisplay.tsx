@@ -3,14 +3,20 @@ import CharacterCard from "@components/CharacterCard/CharacterCard";
 import Logic from "./Logic";
 
 const CharactersDisplay = () => {
-  const { characters, isLoading } = Logic();
+  const { characters, isLoading, handleScrollDown } = Logic();
   characters;
   return (
-    <GridElements loading={isLoading} className="p-8">
-      {characters?.map((character, i) => (
-        <CharacterCard index={i} data={character} key={character.id} />
-      ))}
-    </GridElements>
+    <>
+      <GridElements
+        loading={isLoading}
+        className="p-8"
+        handleScrollDown={handleScrollDown}
+      >
+        {characters?.map((character, i) => (
+          <CharacterCard index={i} data={character} key={character.id} />
+        ))}
+      </GridElements>
+    </>
   );
 };
 

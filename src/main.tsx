@@ -1,3 +1,4 @@
+// TODO Agregar notificaciones para los errors y loading panel
 // TODO Chequear buenas practicas, limpiar codigo, separar components
 // TODO Refinar mobile
 // TODO Hacer testing
