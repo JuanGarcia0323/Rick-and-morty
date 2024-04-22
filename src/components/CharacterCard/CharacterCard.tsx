@@ -1,11 +1,15 @@
 import { ICharacterCardProps } from "@interfaces";
 import Logic from "./Logic";
 
-const CharacterCard = ({ data }: ICharacterCardProps) => {
+const CharacterCard = ({ data, className }: ICharacterCardProps) => {
   const { navigateCharacter, image, listData } = Logic({ data });
 
   return (
-    <div className="window w-full h-full md:h-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative">
+    <div
+      className={`window w-full h-full md:h-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative min-w-80 ${
+        className ?? ""
+      }`}
+    >
       <div className="p-2">
         <img
           src={image}

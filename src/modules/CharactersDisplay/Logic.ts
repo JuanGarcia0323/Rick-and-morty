@@ -1,4 +1,4 @@
-import { useCharacters } from "@queries";
+import { useCharactersByPage } from "@queries";
 
 const Logic = () => {
   const {
@@ -8,7 +8,7 @@ const Logic = () => {
     hasNextPage,
     isLoading,
     isError,
-  } = useCharacters();
+  } = useCharactersByPage();
 
   const characters = data?.pages[0]?.results!;
 

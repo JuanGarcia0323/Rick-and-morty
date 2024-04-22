@@ -4,7 +4,7 @@ import Logic from "./Logic";
 
 const CharactersDisplay = () => {
   const { characters, isLoading } = Logic();
-  console.log(characters);
+  characters;
   return (
     <GridElements loading={isLoading} className="p-8">
       {characters?.map((character) => (
