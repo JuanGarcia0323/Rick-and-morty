@@ -1,48 +1,22 @@
 import { useCharactersByPage } from "@queries";
-import { useState, WheelEvent } from "react";
-import { throttle } from "throttle-debounce";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 const Logic = () => {
-  const [page, setPage] = useState(0);
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isLoading,
-    isError,
-    hasPreviousPage,
-  } = useCharactersByPage();
+  const { ref, inView } = useInView();
+  const { data, fetchNextPage, hasNextPage, isLoading, isError, isFetching } =
+    useCharactersByPage();
 
-  const characters = data?.pages[page]?.results!;
-  const handleScroll = (e: WheelEvent<HTMLDivElement>) => {
-    console.log(e.deltaY);
-    throttle(
-      100,
-      () => {
-        console.log("scrolling");
-        // e.deltaY > 0 ? handleScrollDown() : handleSrollUp();
-      },
-      { noLeading: false, noTrailing: false }
-    );
-  };
-  const handleScrollDown = () => {
-    console.log("test");
-    if (!hasNextPage) {
+  useEffect(() => {
+    if (!inView || isLoading || isFetching || !hasNextPage || isError) {
       return;
     }
-    fetchNextPage().then(() => {
-      setPage((page) => page + 1);
-    });
-  };
+    fetchNextPage();
+  }, [fetchNextPage, inView, isFetching, isLoading, hasNextPage, isError]);
 
-  const handleSrollUp = () => {
-    if (hasPreviousPage) {
-      return;
-    }
-    setPage((page) => page - 1);
-  };
+  const pages = data?.pages;
 
-  return { characters, isLoading, handleScroll };
+  return { pages, isLoading, ref };
 };
 
 export default Logic;
