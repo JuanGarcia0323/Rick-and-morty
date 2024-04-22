@@ -1,46 +1,28 @@
 import GridElements from "@components/GridElements/GridElements";
 import CharacterCard from "@components/CharacterCard/CharacterCard";
 import Logic from "./Logic";
+import Header from "@components/Header/Header";
 
 const CharactersDisplay = () => {
-  const { characters, isLoading, handleScrollDown } = Logic();
+  const { characters, isLoading, handleScroll } = Logic();
   characters;
   return (
-    <>
-      <GridElements
-        loading={isLoading}
-        className="p-8"
-        handleScrollDown={handleScrollDown}
-      >
-        {characters?.map((character, i) => (
-          <CharacterCard index={i} data={character} key={character.id} />
-        ))}
-      </GridElements>
-    </>
+    <GridElements
+      loading={isLoading}
+      className="md:p-8 overflow-y-scroll max-h-full md:mt-16"
+      handleScroll={handleScroll}
+    >
+      <Header></Header>
+      {characters?.map((character, i) => (
+        <CharacterCard
+          index={i}
+          data={character}
+          key={character.id}
+          className=""
+        />
+      ))}
+    </GridElements>
   );
 };
-
-{
-  /* <div className="w-2/4 h-2/4  flex items-center justify-around  window text-white">
-          <button
-            onClick={() => fetchPreviousPage()}
-            className="border py-2 px-8 rounded-md shadow-md font-extrabold tracking-tight uppercase cursor-pointer"
-          >
-            Prev
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              fetchNextPage();
-            }}
-            className={`border py-2 px-8 rounded-md shadow-md font-extrabold tracking-tight uppercase cursor-pointer ${
-              hasNextPage ? "" : "hidden"
-            }`}
-          >
-            Next
-          </button>
-        </div> */
-}
 
 export default CharactersDisplay;

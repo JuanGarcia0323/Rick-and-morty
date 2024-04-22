@@ -3,7 +3,7 @@ import { useMoreInfo, useEpisodes, useLocation, useCharacters } from "@queries";
 import { ICharacter } from "@interfaces";
 
 import PortalIcon from "@components/PortalIcon/PortalIcon";
-import SideBar from "@components/Header/SideBar";
+import Header from "@components/Header/Header";
 import CardCarrousel from "@components/CardCarrousel/CardCarrousel";
 
 const getId = (url?: string) => {
@@ -22,7 +22,6 @@ const MoreInfo = () => {
   const { id } = useParams();
   const { data, isLoading } = useMoreInfo(+id!);
   const listData: Array<keyof Omit<ICharacter, "origin" | "location">> = [
-    "name",
     "gender",
     "status",
     "species",
@@ -58,51 +57,59 @@ const MoreInfo = () => {
   const locationResidents = fetchedLocationResidents.map((d) => d.data!);
 
   return (
-    <div className="w-screen h-screen flex bg-gradient-to-tr from-30% via-65% from-green-500 via-teal-500 to-indigo-500">
-      <div className="h-full w-full flex items-center justify-center text-white font-mono overflow-hidden">
-        <div className="p-4 window w-4/5 h-4/5 flex gap-4">
-          <div className="flex flex-col gap-4 window-black p-4 h-full w-fit">
-            <img src={data?.image} className="rounded-md shadow-md" />
-            <h4 className="text-2xl border-b-2 border-primary-300">
+    <div className="w-screen h-screen flex flex-col md:items-center justify-center border border-red-500">
+      <Header></Header>
+      <div className="max-h-full text-white font-mono overflow-hidden p-4 window flex flex-col w-full h-full md:flex-row md:w-4/5 md:h-4/5 gap-4">
+        <div className="flex md:flex-col gap-4 items-center window-black p-4 h-2/6 md:h-full w-full md:w-auto">
+          <img
+            src={data?.image}
+            className="rounded-md shadow-md w-40 h-40 md:w-auto"
+          />
+          <div className="flex flex-col gap-4 overflow-hidden h-full">
+            <h4 className="md:text-2xl border-b-2 border-primary-300">
               Appearances:
             </h4>
             <ul className="flex flex-col overflow-y-auto overflow-x-hidden  h-full items-center gap-2 scrollbar-default px-2">
               {!!episodes &&
                 episodes?.map(({ name }) => (
-                  <li key={name} className="w-full p-2 window text-center">
+                  <li
+                    key={name}
+                    className="w-full p-2 window text-center text-sm tracking-tighter md:text-base md:tracking-normal"
+                  >
                     {name}
                   </li>
                 ))}
             </ul>
           </div>
-          <div className="flex flex-col gap-4 w-full overflow-hidden window-black p-4 text-2xl">
-            <dl>
-              <dt className="inline-block font-bold tracking-tight  text-4xl w-full border-b-2 border-primary-300 mb-2">
-                {data?.name}
-              </dt>
-              {listData.map((key) => (
-                <dd
-                  className="w-full text-ellipsis h-fit text-nowrap overflow-hidden text-primary-300 px-4 py-2"
-                  key={key}
-                >
-                  {key.toUpperCase()}: {data![key]}
-                </dd>
-              ))}
-            </dl>
-            <CardCarrousel
-              className="h-full"
-              title={`Origin: ${origin.data?.name}`}
-              data={originResidents}
-            />
+        </div>
+        <div className="flex flex-col gap-2 md:gap-4 w-full overflow-y-auto window-black h-full p-4 md:text-2xl ">
+          <dl>
+            <dt className="inline-block font-bold tracking-tight  md:text-4xl w-full border-b-2 border-primary-300 mb-2">
+              {data?.name}
+            </dt>
+            {listData.map((key) => (
+              <dd
+                className="w-full text-ellipsis h-fit text-nowrap overflow-hidden text-primary-300 px-4 md:py-2"
+                key={key}
+              >
+                {key.toUpperCase()}: {data![key]}
+              </dd>
+            ))}
+          </dl>
+          <CardCarrousel
+            className="h-full"
+            title={`Origin: ${origin.data?.name}`}
+            data={originResidents}
+          />
+          {location.data?.name === origin.data?.name || (
             <CardCarrousel
               className="h-full"
               title={`Location: ${location.data?.name}`}
               data={locationResidents}
             />
-          </div>
+          )}
         </div>
       </div>
-      <SideBar></SideBar>
     </div>
   );
 };

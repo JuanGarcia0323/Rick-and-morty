@@ -1,10 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, WheelEvent } from "react";
 interface IGridElementsProps {
   children: ReactNode;
   loading?: boolean;
   className?: string;
-  handleScrollDown: () => void;
-  handleScrollUp: () => void;
+  handleScroll: (e: WheelEvent<HTMLDivElement>) => void;
 }
 
 export type { IGridElementsProps };
