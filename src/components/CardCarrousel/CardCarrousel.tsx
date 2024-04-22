@@ -12,7 +12,11 @@ const CardCarrousel = ({ data, className, title }: ICardCarrouselProps) => {
         className={`flex w-full flex-nowrap overflow-y-hidden overflow-x-auto gap-4 ${className}`}
       >
         {data.map((d) => (
-          <CharacterCard data={d} className="w-full lg:h-60 text-sm" />
+          <CharacterCard
+            key={d.id + (title ?? "")}
+            data={d}
+            className="w-full lg:h-60 text-sm"
+          />
         ))}
       </div>
     </section>
