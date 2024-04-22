@@ -44,6 +44,7 @@ export const useCharacters = (ids?: number[]) => {
     queries: (ids ?? []).map((id) => ({
       queryKey: ["episode", id],
       queryFn: () => getCharacter(id),
+      refetchOnWindowFocus: false,
     })),
   });
 };

@@ -7,8 +7,8 @@ const CharactersDisplay = () => {
   characters;
   return (
     <GridElements loading={isLoading} className="p-8">
-      {characters?.map((character) => (
-        <CharacterCard data={character} key={character.id} />
+      {characters?.map((character, i) => (
+        <CharacterCard index={i} data={character} key={character.id} />
       ))}
     </GridElements>
   );

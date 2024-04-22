@@ -90,10 +90,12 @@ const MoreInfo = () => {
               ))}
             </dl>
             <CardCarrousel
+              className="h-full"
               title={`Origin: ${origin.data?.name}`}
               data={originResidents}
             />
             <CardCarrousel
+              className="h-full"
               title={`Location: ${location.data?.name}`}
               data={locationResidents}
             />
