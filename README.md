@@ -14,7 +14,7 @@ This project is an example application that consumens an example API about Rick 
 
 ## Useful information 🤔
 
-To run the project use `$ npm run dev` also you find it deployed on [here]()
+To run the project use `$ npm run dev` also you find it deployed on [here](https://rick-morty-documentation.netlify.app/)
 
 ## Clarifications
 
