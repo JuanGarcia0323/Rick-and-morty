@@ -3,8 +3,6 @@ interface IPagination {
   name?: string;
   species?: string;
   type?: string;
-  status?: "alive" | "dead" | "unknown";
-  gender?: "female" | "male" | "genderless" | "unknown";
 }
 
 interface Info {

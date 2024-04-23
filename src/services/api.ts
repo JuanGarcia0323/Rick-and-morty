@@ -16,19 +16,15 @@ const checkParams = (name: string, param?: string) => {
 
 export const getCharactersByPage = async ({
   pageParam = 1,
-  gender,
   name,
   species,
-  status,
   type,
 }: IPagination) => {
   return (
     await axiosInstance.get<IRequestInfo<ICharacter[]>>(
       `character/?page=${pageParam}
-      ${checkParams("gender", gender)}
       ${checkParams("name", name)}
       ${checkParams("species", species)}
-      ${checkParams("status", status)}
       ${checkParams("type", type)}`
     )
   ).data;

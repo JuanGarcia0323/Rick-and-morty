@@ -9,3 +9,5 @@ export * from "./CardCorrusel";
 export * from "./SidebarMoreInfo";
 export * from "./Characteristics";
 export * from "./Notification";
+export * from "./Input";
+export * from "./Filter";

@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 interface ISideBarProps {
   className?: string;
-  setName: (name: string) => void;
+  children?: ReactNode;
 }
 export type { ISideBarProps };
