@@ -1,5 +1,8 @@
 interface IPagination {
   pageParam?: number;
+  name?: string;
+  species?: string;
+  type?: string;
 }
 
 interface Info {
