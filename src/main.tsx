@@ -1,5 +1,3 @@
-// TODO Hacer testing
-
 import { NotificationProvider } from "@components/UseNotification/NotificationProvider";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
