@@ -31,6 +31,10 @@ export default defineConfig({
         find: "@queries",
         replacement: resolve(__dirname, "src/services/queries.ts"),
       },
+      {
+        find: "@routes",
+        replacement: resolve(__dirname, "src/routes.ts"),
+      },
     ],
   },
 });

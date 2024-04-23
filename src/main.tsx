@@ -1,6 +1,10 @@
+// TODO Hacer testing
+// TODO Agregar Filtro
+
+import { NotificationProvider } from "@components/UseNotification/NotificationProvider";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
-import routes from "./Routes";
+import Router from "./Router";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -13,7 +17,9 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={routes} />
+      <NotificationProvider>
+        <RouterProvider router={Router} />
+      </NotificationProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

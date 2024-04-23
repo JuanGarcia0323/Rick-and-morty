@@ -1,12 +1,22 @@
-import { useInfiniteQuery, keepPreviousData } from "@tanstack/react-query";
-import { getCharacters } from "./api";
+import {
+  useInfiniteQuery,
+  keepPreviousData,
+  useQuery,
+  useQueries,
+} from "@tanstack/react-query";
+import {
+  getCharactersByPage,
+  getCharacter,
+  getEpisode,
+  getLocation,
+} from "./api";
 
-export function useCharacters() {
+export const useCharactersByPage = (initialPage = 1) => {
   return useInfiniteQuery({
     queryKey: ["getCharacters"],
-    queryFn: getCharacters,
+    queryFn: getCharactersByPage,
     placeholderData: keepPreviousData,
-    initialPageParam: 1,
+    initialPageParam: initialPage,
     getNextPageParam: (lastPage, _, lastPageParam) => {
       if (!lastPage.info.next) {
         return undefined;
@@ -20,4 +30,52 @@ export function useCharacters() {
       return firstPageParam + 1;
     },
   });
-}
+};
+
+export const useCharacter = (id: number) => {
+  return useQuery({
+    queryKey: ["moreInfo", id],
+    queryFn: () => getCharacter(id),
+  });
+};
+
+export const useCharacters = (ids?: number[]) => {
+  return useQueries({
+    queries: (ids ?? []).map((id) => ({
+      queryKey: ["episode", id],
+      queryFn: () => getCharacter(id),
+      refetchOnWindowFocus: false,
+    })),
+  });
+};
+
+export const useMoreInfo = (id: number) => {
+  return useQuery({
+    queryKey: ["moreInfo", id],
+    queryFn: () => getCharacter(id),
+  });
+};
+
+export const useEpisode = (id: number) => {
+  return useQuery({
+    queryKey: ["episodes", id],
+    queryFn: () => getEpisode(id),
+  });
+};
+
+export const useEpisodes = (ids?: number[]) => {
+  return useQueries({
+    queries: (ids ?? []).map((id) => ({
+      queryKey: ["episode", id],
+      queryFn: () => getEpisode(id),
+    })),
+  });
+};
+
+export const useLocation = (id?: number) => {
+  return useQuery({
+    queryKey: ["location", id],
+    queryFn: () => getLocation(id!),
+    enabled: !!id,
+  });
+};

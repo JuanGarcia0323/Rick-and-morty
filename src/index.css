@@ -3,7 +3,18 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply bg-gradient-to-tr from-30% via-65% from-green-800 via-teal-500 to-indigo-500;
+  }
   .window {
-    @apply bg-black/40 rounded-md shadow-lg;
+    @apply bg-white/20 rounded-md shadow-lg;
+  }
+
+  .window-black {
+    @apply bg-black/60 rounded-md shadow-lg;
+  }
+
+  .scrollbar-default {
+    @apply scrollbar-thin scrollbar-track-black/20 scrollbar-thumb-primary-300;
   }
 }
