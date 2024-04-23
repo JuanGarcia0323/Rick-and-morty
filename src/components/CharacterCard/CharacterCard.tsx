@@ -12,8 +12,8 @@ const CharacterCard = ({
 
   return (
     <motion.div
-      initial={{ height: "0%", minHeight: "0px" }}
-      animate={{ height: "100%", minHeight: "176px" }}
+      initial={{ height: "0%", minHeight: "0px", opacity: 0 }}
+      animate={{ height: "100%", minHeight: "176px", opacity: 100 }}
       transition={{ delay: 0.2 * (index ?? 1) }}
       className={`window w-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative min-w-80  ${
         className ?? ""
