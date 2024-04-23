@@ -1,12 +1,10 @@
 // TODO Agregar notificaciones para los errors y loading panel
 // TODO Chequear buenas practicas, limpiar codigo, separar components
-// TODO Refinar mobile
 // TODO Hacer testing
 // TODO Agregar Filtro
-// TODO Agregar animaciones
 // TODO Agregar alt imagenes
-// TODO Eliminar <a>
 
+import { NotificationProvider } from "@components/UseNotification/useNotification";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import routes from "./Routes";
@@ -22,7 +20,9 @@ const queryClient = new QueryClient({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={routes} />
+      <NotificationProvider>
+        <RouterProvider router={routes} />
+      </NotificationProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
