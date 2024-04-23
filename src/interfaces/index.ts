@@ -6,3 +6,5 @@ export * from "./CharacterCard";
 export * from "./Episode";
 export * from "./Location";
 export * from "./CardCorrusel";
+export * from "./SidebarMoreInfo";
+export * from "./Characteristics";
