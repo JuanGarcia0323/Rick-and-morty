@@ -3,7 +3,7 @@ import { ICharacter } from "@interfaces";
 type characteristics = Array<keyof Omit<ICharacter, "origin" | "location">>;
 
 interface ICharacteristicsProps {
-  data: ICharacter;
+  data?: ICharacter;
   characteristics: characteristics;
 }
 

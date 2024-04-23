@@ -3,7 +3,8 @@ import { ICharacter } from "@interfaces";
 interface ICardCarrouselProps {
   className?: string;
   title?: string;
-  data: ICharacter[];
+  data: Array<ICharacter | undefined>;
+  loading?: boolean;
 }
 
 export type { ICardCarrouselProps };

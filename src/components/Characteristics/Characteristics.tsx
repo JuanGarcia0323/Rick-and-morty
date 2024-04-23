@@ -11,7 +11,7 @@ const Characteristics = ({ characteristics, data }: ICharacteristicsProps) => {
           className="w-full text-ellipsis h-fit text-nowrap overflow-hidden text-primary-300 px-4 md:py-2"
           key={key}
         >
-          {key.toUpperCase()}: {data![key]}
+          {key.toUpperCase()}: {data && data[key]}
         </dd>
       ))}
     </dl>
