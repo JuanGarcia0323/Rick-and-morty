@@ -8,6 +8,9 @@ This project is an example application that consumens an example API about Rick 
 4. React Router
 5. Axios
 6. TailwindCSS
+7. Use-Debounce
+8. Vitest
+9. React Testing Library
 
 ## Useful information 🤔
 
