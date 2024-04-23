@@ -27,7 +27,7 @@
       "@utils/*": ["utils/*"],
       "@interfaces": ["interfaces/index.ts"],
       "@queries": ["services/queries.ts"],
-      "@routes": ["Routes.tsx"]
+      "@routes": ["routes.ts"]
     }
   },
   "include": ["src"],

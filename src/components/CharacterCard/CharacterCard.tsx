@@ -21,6 +21,7 @@ const CharacterCard = ({
     >
       <div className="p-2">
         <img
+          alt={data.name}
           src={image}
           className={`object-cover w-2/4 md:w-32 rounded-md group-hover:blur-md group-hover:opacity-50 transition-all duration-300 ease-in-out h-fit shadow-md ${imageClassName}`}
         />

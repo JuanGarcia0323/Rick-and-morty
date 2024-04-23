@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useMoreInfo, useEpisodes, useLocation, useCharacters } from "@queries";
 import { characteristics } from "@interfaces";
+import useNotification from "@components/UseNotification/useNotification";
 const getId = (url?: string) => {
   if (!url) {
     return;
@@ -15,7 +16,7 @@ const extractId = (urls?: string[]) =>
 
 const Logic = () => {
   const { id } = useParams();
-  const { data, isLoading } = useMoreInfo(+id!);
+  const { data, isLoading, error } = useMoreInfo(+id!);
   const listData: characteristics = ["gender", "status", "species"];
 
   const episodesIds = extractId(data?.episode);
@@ -31,12 +32,27 @@ const Logic = () => {
   const originResidents = fetchedOriginResidents.map((d) => d.data);
   const locationResidents = fetchedLocationResidents.map((d) => d.data);
 
-  //   isLoading ||
-  //   fetchEpisodes.some((e) => e.isLoading) ||
-  //   location.isLoading ||
-  //   origin.isLoading ||
-  //   fetchedLocationResidents.some((d) => d.isLoading) ||
-  //   fetchedOriginResidents.some((d) => d.isLoading)
+  useNotification({ error: error?.message, title: "Error loading character" });
+  useNotification({
+    error: fetchEpisodes.find((e) => e.error)?.error?.message,
+    title: "Error loading episodes",
+  });
+  useNotification({
+    error: location.error?.message,
+    title: "Error loading location",
+  });
+  useNotification({
+    error: origin.error?.message,
+    title: "Error loading location",
+  });
+  useNotification({
+    error: fetchedLocationResidents.find((e) => e.error)?.error?.message,
+    title: "Error loading location residents",
+  });
+  useNotification({
+    error: fetchedOriginResidents.find((e) => e.error)?.error?.message,
+    title: "Error loading origin residents",
+  });
 
   return {
     listData,

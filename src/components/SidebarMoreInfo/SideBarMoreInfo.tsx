@@ -5,6 +5,7 @@ const SidebarMoreInfo = ({
   episodes,
   image,
   loading,
+  alt,
 }: ISidebarMoreInfoProps) => {
   return (
     <div className="flex md:flex-col gap-4 items-center window-black p-4 h-2/6 md:h-full w-full md:w-auto">
@@ -13,6 +14,7 @@ const SidebarMoreInfo = ({
       ) : (
         <>
           <img
+            alt={alt}
             src={image}
             className="rounded-md shadow-md w-40 h-40 md:w-auto"
           />

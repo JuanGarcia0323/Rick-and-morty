@@ -1,13 +1,10 @@
-// TODO Agregar notificaciones para los errors y loading panel
-// TODO Chequear buenas practicas, limpiar codigo, separar components
 // TODO Hacer testing
 // TODO Agregar Filtro
-// TODO Agregar alt imagenes
 
-import { NotificationProvider } from "@components/UseNotification/useNotification";
+import { NotificationProvider } from "@components/UseNotification/NotificationProvider";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
-import routes from "./Routes";
+import Router from "./Router";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -21,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <NotificationProvider>
-        <RouterProvider router={routes} />
+        <RouterProvider router={Router} />
       </NotificationProvider>
     </QueryClientProvider>
   </React.StrictMode>

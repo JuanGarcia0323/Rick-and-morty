@@ -26,6 +26,7 @@ const MoreInfo = () => {
           episodes={episodes}
           image={data?.image}
           loading={loadingEpisodes}
+          alt={data?.name}
         />
         <div className="flex flex-col gap-2 md:gap-4 w-full overflow-y-auto window-black h-full p-4 md:text-2xl ">
           <Characteristics characteristics={listData} data={data} />

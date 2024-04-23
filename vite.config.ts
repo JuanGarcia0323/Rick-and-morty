@@ -33,7 +33,7 @@ export default defineConfig({
       },
       {
         find: "@routes",
-        replacement: resolve(__dirname, "src/Routes.tsx"),
+        replacement: resolve(__dirname, "src/routes.ts"),
       },
     ],
   },

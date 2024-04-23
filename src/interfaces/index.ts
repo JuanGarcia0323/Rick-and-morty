@@ -8,3 +8,4 @@ export * from "./Location";
 export * from "./CardCorrusel";
 export * from "./SidebarMoreInfo";
 export * from "./Characteristics";
+export * from "./Notification";

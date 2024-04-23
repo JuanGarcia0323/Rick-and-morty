@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { routes } from "@routes";
+import routes from "@routes";
 import { ICharacterCardProps, ICharacter } from "@interfaces";
 
 const Logic = ({ data }: ICharacterCardProps) => {
