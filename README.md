@@ -13,6 +13,7 @@ This project is an example application that consumens an example API about Rick 
 
 To run the project use `$ npm run dev` also you find it deployed on [here]()
 
-## Clarification
+## Clarifications
 
-In this case the `.env` file has been push with the project but this is just because it isn't meant to be a _"Real"_ project
+In this case the `.env` file has been push with the project but this is just because it isn't meant to be a _"Real"_ project.
+It's worth mentioning that some of the decisions made like implementing most of the features by hand and trying to use as little dependencies as possible is intended
