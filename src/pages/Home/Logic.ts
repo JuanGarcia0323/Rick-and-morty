@@ -36,9 +36,13 @@ const Logic = () => {
   }, [fetchNextPage, inView, isFetching, isLoading, hasNextPage, isError]);
   const characters = data?.pages.flatMap((p) => p.results);
   const filter: IFilterData[] = [
-    { onChange: setName, title: "Name:" },
-    { onChange: setType, title: "Type:" },
-    { onChange: setSpicies, title: "Species:" },
+    { onChange: setName, title: "Name:", className: "w-full md:w-auto" },
+    { onChange: setType, title: "Type:", className: "hidden md:inline-block" },
+    {
+      onChange: setSpicies,
+      title: "Species:",
+      className: "hidden md:inline-block",
+    },
   ];
 
   return {

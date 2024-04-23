@@ -4,9 +4,9 @@ interface IFilterData {
   title: string;
   onChange: (value: string) => void;
   loading?: boolean;
+  className?: string;
 }
 interface IFilterProps {
-  className?: string;
   children?: ReactNode;
   data: IFilterData[];
 }

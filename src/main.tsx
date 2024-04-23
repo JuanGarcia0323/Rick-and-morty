@@ -1,5 +1,4 @@
 // TODO Hacer testing
-// TODO Agregar Filtro
 
 import { NotificationProvider } from "@components/UseNotification/NotificationProvider";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";

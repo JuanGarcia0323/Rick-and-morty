@@ -1,10 +1,10 @@
 import Input from "@components/Input/Input";
 import { IFilterProps } from "@interfaces";
 
-const Filter = ({ children, className, data }: IFilterProps) => {
+const Filter = ({ children, data }: IFilterProps) => {
   return (
     <>
-      {data.map(({ onChange, title, loading }) => (
+      {data.map(({ onChange, title, loading, className }) => (
         <Input
           onChange={onChange}
           placeholder={title}
