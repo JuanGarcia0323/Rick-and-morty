@@ -10,10 +10,26 @@ import {
 const BASE_URL = import.meta.env.VITE_API;
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
-export const getCharactersByPage = async ({ pageParam = 1 }: IPagination) => {
+const checkParams = (name: string, param?: string) => {
+  return param ? `&${name}=${param}` : "";
+};
+
+export const getCharactersByPage = async ({
+  pageParam = 1,
+  gender,
+  name,
+  species,
+  status,
+  type,
+}: IPagination) => {
   return (
     await axiosInstance.get<IRequestInfo<ICharacter[]>>(
-      `character/?page=${pageParam}`
+      `character/?page=${pageParam}
+      ${checkParams("gender", gender)}
+      ${checkParams("name", name)}
+      ${checkParams("species", species)}
+      ${checkParams("status", status)}
+      ${checkParams("type", type)}`
     )
   ).data;
 };

@@ -10,13 +10,17 @@ import {
   getEpisode,
   getLocation,
 } from "./api";
+import { IPagination } from "@interfaces";
 
-export const useCharactersByPage = (initialPage = 1) => {
+export const useCharactersByPage = (
+  queryParams: Omit<IPagination, "pageParam">
+) => {
   return useInfiniteQuery({
-    queryKey: ["getCharacters"],
-    queryFn: getCharactersByPage,
+    queryKey: ["getCharacters", queryParams],
+    queryFn: ({ pageParam }) =>
+      getCharactersByPage({ ...queryParams, pageParam }),
     placeholderData: keepPreviousData,
-    initialPageParam: initialPage,
+    initialPageParam: 1,
     getNextPageParam: (lastPage, _, lastPageParam) => {
       if (!lastPage.info.next) {
         return undefined;
