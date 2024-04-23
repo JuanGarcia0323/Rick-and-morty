@@ -18,7 +18,7 @@ const CardCarrousel = ({ data, className, title }: ICardCarrouselProps) => {
             key={d.id + (title ?? "")}
             data={d}
             className="w-full text-sm md:text-base"
-            imageClassName="w-1/3 md:w-1/3"
+            imageClassName="w-[37%] md:w-[37%]"
           />
         ))}
       </div>

@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import { useMoreInfo, useEpisodes, useLocation, useCharacters } from "@queries";
 import { ICharacter } from "@interfaces";
 
-import PortalIcon from "@components/PortalIcon/PortalIcon";
 import Header from "@components/Header/Header";
 import CardCarrousel from "@components/CardCarrousel/CardCarrousel";
+import LoadingPanel from "@components/LoadingPanel/LoadingPanel";
 
 const getId = (url?: string) => {
   if (!url) {
@@ -46,8 +46,8 @@ const MoreInfo = () => {
     fetchedOriginResidents.some((d) => d.isLoading)
   ) {
     return (
-      <div>
-        <PortalIcon></PortalIcon>
+      <div className="w-screen h-screen p-4">
+        <LoadingPanel></LoadingPanel>
       </div>
     );
   }
@@ -57,7 +57,7 @@ const MoreInfo = () => {
   const locationResidents = fetchedLocationResidents.map((d) => d.data!);
 
   return (
-    <div className="w-screen h-screen flex flex-col md:items-center justify-center border border-red-500">
+    <div className="w-screen h-screen flex flex-col md:items-center justify-center">
       <Header></Header>
       <div className="max-h-full text-white font-mono overflow-hidden p-4 window flex flex-col w-full h-full md:flex-row md:w-4/5 md:h-4/5 gap-4">
         <div className="flex md:flex-col gap-4 items-center window-black p-4 h-2/6 md:h-full w-full md:w-auto">

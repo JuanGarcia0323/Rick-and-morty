@@ -12,10 +12,10 @@ const CharacterCard = ({
 
   return (
     <motion.div
-      initial={{ height: "0%" }}
-      animate={{ height: "100%" }}
+      initial={{ height: "0%", minHeight: "0px" }}
+      animate={{ height: "100%", minHeight: "176px" }}
       transition={{ delay: 0.2 * (index ?? 1) }}
-      className={`window w-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative min-w-80 ${
+      className={`window w-full rounded-md flex gap-4 text-white font-bold overflow-hidden group hover:p-0 transition-all duration-500 ease-in-out cursor-pointer relative min-w-80  ${
         className ?? ""
       }`}
     >
@@ -30,14 +30,14 @@ const CharacterCard = ({
         onClick={navigateCharacter}
       >
         <div className="flex flex-col">
-          <title className="inline-block relative text-base w-full tracking-tighter md:text-lg md:tracking-normal text-primary-900 group-hover:text-primary-300">
+          <title className="inline-block relative text-sm w-full tracking-tighter md:text-lg md:tracking-normal text-primary-900 group-hover:text-primary-300">
             Known information:
           </title>
           <span className="w-0 opacity-0 border border-primary-300 transition-all duration-700 ease-in-out group-hover:w-[95%] group-hover:opacity-100"></span>
         </div>
         {listData.map((key) => (
           <h3
-            className="w-full text-ellipsis text-sm md:text-base h-fit text-nowrap overflow-hidden"
+            className="w-full text-ellipsis text-xs md:text-base h-fit text-nowrap overflow-hidden"
             key={key}
           >
             {key.toUpperCase()}: {data[key]}

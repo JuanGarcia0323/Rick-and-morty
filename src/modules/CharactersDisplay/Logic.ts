@@ -14,9 +14,9 @@ const Logic = () => {
     fetchNextPage();
   }, [fetchNextPage, inView, isFetching, isLoading, hasNextPage, isError]);
 
-  const pages = data?.pages;
+  const characters = data?.pages.flatMap((p) => p.results);
 
-  return { pages, isLoading, ref };
+  return { characters, isLoading, ref };
 };
 
 export default Logic;
