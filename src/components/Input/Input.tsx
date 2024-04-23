@@ -9,6 +9,7 @@ const Input = ({
 }: IInputProps) => {
   return (
     <input
+      data-testid="input"
       placeholder={placeholder}
       className={` p-2 window placeholder-white outline-none text-white focus:outline-indigo-500 hover:outline-primary-500 duration-300 ease-in-out transition-all ${
         className ?? ""

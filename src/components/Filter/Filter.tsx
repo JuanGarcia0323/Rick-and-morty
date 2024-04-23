@@ -6,6 +6,7 @@ const Filter = ({ children, data }: IFilterProps) => {
     <>
       {data.map(({ onChange, title, loading, className }) => (
         <Input
+          key={title}
           onChange={onChange}
           placeholder={title}
           loading={loading}
